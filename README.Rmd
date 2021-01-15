@@ -39,7 +39,9 @@ If you need information from a HICDEP table, access it from the list
 ```{r access-data}
 library(HicdepR)
 
-hicdep_data$tblART
+tblBAS <- hicdep_data$tblBAS
+
+head(tblBAS$corefields, 3)
 ```
 
 
