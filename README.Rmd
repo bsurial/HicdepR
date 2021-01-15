@@ -1,0 +1,51 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# HicdepR
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of HicdepR is to provide local `.rds` files that contain the HICDEP
+codes (version 1.120) locally to users. In addition, the function `hicdep_scrape.R`
+can be used to manually scrape one of the HICDEP tables from the web.
+
+## Installation
+
+HicdepR is currently in development version. You can download it from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("bsurial/HicdepR")
+```
+## Manually get a table from HICDEP
+
+If you want to manually scrape a HICDEP page (e.g. an older version than 1.120),
+just add the URL and the corresponding name to `hicdep_scrape()`.
+
+```{r example}
+library(HicdepR)
+
+## Get an older version of tblART from HICDEP 1.110
+tblART <- hicdep_scrape("https://hicdep.org/Wiki/v/9/pt/3/Table/17", "tblART")
+```
+
+For most HICDEP tables, there the function provides a list of 2 tables, 
+`corefields` and `additional`. These can be retrieved as with any list items.
+
+```{r}
+head(tblART$corefields)
+```
+
