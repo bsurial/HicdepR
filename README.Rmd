@@ -30,12 +30,25 @@ HicdepR is currently in development version. You can download it from [GitHub](h
 # install.packages("devtools")
 devtools::install_github("bsurial/HicdepR")
 ```
+
+## Access HICDEP tables
+
+If you need information from a HICDEP table, access it from the list 
+`hicdep_data`.
+
+```{r access-data}
+library(HicdepR)
+
+hicdep_data$tblART
+```
+
+
 ## Manually get a table from HICDEP
 
 If you want to manually scrape a HICDEP page (e.g. an older version than 1.120),
 just add the URL and the corresponding name to `hicdep_scrape()`.
 
-```{r example}
+```{r scrape-data}
 library(HicdepR)
 
 ## Get an older version of tblART from HICDEP 1.110
