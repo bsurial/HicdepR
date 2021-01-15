@@ -29,18 +29,30 @@ If you need information from a HICDEP table, access it from the list
 
 ``` r
 library(HicdepR)
+library(dplyr)
+#> 
+#> Attache Paket: 'dplyr'
+#> The following objects are masked from 'package:stats':
+#> 
+#>     filter, lag
+#> The following objects are masked from 'package:base':
+#> 
+#>     intersect, setdiff, setequal, union
 
-tblBAS <- hicdep_data$tblBAS
+tblLAB <- hicdep_data$tblLAB
 
-head(tblBAS$corefields, 3)
-#>   fieldname                                   format
-#> 1   PATIENT       character (or numeric if possible)
-#> 2   BIRTH_D                               yyyy-mm-dd
-#> 3 BIRTH_D_A character: see coding of date precision 
-#>                                    description
-#> 1 Code to identify patient (Cohort Patient ID)
-#> 2                                   Birth date
-#> 3 optional precision annotation for birth date
+tblLAB$corefields %>% 
+  select(-format) # Omit format for nicer printing
+#> # A tibble: 7 x 2
+#>   fieldname description                                                 
+#>   <chr>     <chr>                                                       
+#> 1 PATIENT   Code to identify patient (Cohort Patient ID)                
+#> 2 LAB_ID    Code representing the measurement                           
+#> 3 LAB_D     Date of measurement/sample                                  
+#> 4 LAB_D_A   optional precision annotation for date of measurement/sample
+#> 5 LAB_R     Measurement result                                          
+#> 6 LAB_V     Value of measurement                                        
+#> 7 LAB_U     Unit of measurement
 ```
 
 ## Manually get a table from HICDEP

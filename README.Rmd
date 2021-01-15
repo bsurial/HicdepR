@@ -38,10 +38,12 @@ If you need information from a HICDEP table, access it from the list
 
 ```{r access-data}
 library(HicdepR)
+library(dplyr)
 
-tblBAS <- hicdep_data$tblBAS
+tblLAB <- hicdep_data$tblLAB
 
-head(tblBAS$corefields, 3)
+tblLAB$corefields %>% 
+  select(-format) # Omit format for nicer printing
 ```
 
 
