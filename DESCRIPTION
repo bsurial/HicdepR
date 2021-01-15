@@ -1,0 +1,22 @@
+Package: HicdepR
+Title: Provide HICDEP Tables in R
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Bernard",
+           family = "Surial",
+           role = c("aut", "cre"),
+           email = "surial.bernard@gmail.com")
+Description: This package is intended to provide information on the HICDEP 
+             variables from https://hicdep.org/Wiki/v/10/pt/2.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Imports: 
+    dplyr,
+    rvest,
+    xml2,
+    tidyr
+URL: https://github.com/bsurial/HicdepR
+BugReports: https://github.com/bsurial/HicdepR/issues
